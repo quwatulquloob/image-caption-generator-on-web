@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Add drawer button outside the center element -->
+<button onclick="toggleDrawer()" class="drawer-button">&#9776;</button>
+
+<center>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <h1 class='display-1'>Image Caption Generator</h1>
+    <br>
+    <br>
+    <form action="{{ url_for('after') }}" method='POST' enctype='multipart/form-data'>
+        <input type="file" name='file1'>
+        <input type="submit" name="btn" value='Predict' class='btn btn-warning'>
+    </form>
+    <!-- Profile drawer -->
+    <!-- Add this in your index.html template -->
+    <div id="profileDrawer" class="drawer">
+        <button onclick="closeProfile()" class="close-button">&times;</button> <!-- Cross button to close the profile drawer -->
+        <h2>User Profile</h2>
+        {% if person.is_logged_in %}
+        <p id="userName">Name: {{ person.name }}</p>
+        <p id="userEmail">Email: {{ person.email }}</p>
+        <p>Phone: {{ person.phone }}</p>
+        <p>Gender: {{ person.gender }}</p>
+        {% else %}
+        <p>User not logged in.</p>
+        {% endif %}
+    </div>
+</center>
+
+<style>
+    .drawer-button {
+        position: fixed; /* Fix the button position */
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+    }
+
+    .drawer {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #f2f2f2;
+        padding: 20px;
+        z-index: 1000;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .drawer.show {
+        display: block;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 5px 10px;
+    }
+</style>
+
+<!-- JavaScript code to handle drawer toggle -->
+<script>
+    function toggleDrawer() {
+        var drawer = document.getElementById("profileDrawer");
+        drawer.classList.toggle("show");
+
+        if (drawer.classList.contains("show")) {
+            fetchUserDetails();
+        }
+    }
+
+    function fetchUserDetails() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                if (xhr.status == 200) {
+                    var user = JSON.parse(xhr.responseText);
+                    displayUserDetails(user);
+                } else {
+                    console.log("Error fetching user details");
+                }
+            }
+        };
+        xhr.open("GET", "/index", true);
+        xhr.send();
+    }
+
+    function displayUserDetails(user) {
+        if (user.is_logged_in) {
+            document.getElementById("userName").innerText = "Name: " + user.name;
+            document.getElementById("userEmail").innerText = "Email: " + user.email;
+            // Add more details as needed
+        } else {
+            console.log("User not logged in");
+        }
+    }
+
+    function closeProfile() {
+        var drawer = document.getElementById("profileDrawer");
+        drawer.classList.remove("show");
+    }
+</script>
+
+{% endblock %}

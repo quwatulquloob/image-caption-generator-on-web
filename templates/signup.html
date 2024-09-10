@@ -1,0 +1,106 @@
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Sign Up</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="wrapper fadeInDown">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div id="formContent">&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash; Tabs Titles &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="{{ url_for('login') }}"><h2 class="inactive underlineHover"> Sign In </h2></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <h2 class="active">Sign Up </h2>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        &lt;!&ndash; Icon &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="fadeIn first">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="{{ url_for('static', filename='login.png') }}" id="icon" alt="User Icon" />&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        &lt;!&ndash; Signup Form &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <form action="{{ url_for('register') }}" method="POST">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" id="name" class="fadeIn second" name="name" placeholder="Name">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="submit" class="fadeIn fourth" value="Sign Up">&ndash;&gt;-->
+<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Sign Up</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="wrapper fadeInDown">-->
+<!--    <div id="formContent">-->
+<!--        &lt;!&ndash; Tabs Titles &ndash;&gt;-->
+<!--        <a href="{{ url_for('login') }}"><h2 class="inactive underlineHover"> Sign In </h2></a>-->
+<!--        <h2 class="active">Sign Up </h2>-->
+
+<!--        &lt;!&ndash; Icon &ndash;&gt;-->
+<!--        <div class="fadeIn first">-->
+<!--            <img src="{{ url_for('static', filename='login.png') }}" id="icon" alt="User Icon" />-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Signup Form &ndash;&gt;-->
+<!--        <form action="{{ url_for('register') }}" method="POST">-->
+<!--        {% if error %}-->
+<!--        <div class="alert alert-danger">{{ error }}</div>-->
+<!--        {% endif %}-->
+<!--        <input type="text" id="name" class="fadeIn second" name="name" placeholder="Name">-->
+<!--        <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email">-->
+<!--        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" minlength="6">-->
+<!--        <input type="submit" class="fadeIn fourth" value="Sign Up">-->
+<!--</form>-->
+
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <a href="{{ url_for('login') }}"><h2 class="inactive underlineHover"> Sign In </h2></a>
+        <h2 class="active">Sign Up </h2>
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="{{ url_for('static', filename='login.png') }}" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Signup Form -->
+        <form action="{{ url_for('register') }}" method="POST">
+            {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            <input type="text" id="name" class="fadeIn second" name="name" placeholder="Name" required>
+            <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email" required>
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" minlength="6" required>
+            <input type="password" id="confirm_password" class="fadeIn third" name="confirm_password" placeholder="Confirm Password" minlength="6" required>
+            <input type="text" id="phone" class="fadeIn third" name="phone" placeholder="Phone Number" required>
+            <select id="gender" class="fadeIn third" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="submit" class="fadeIn fourth" value="Sign Up">
+        </form>
+    </div>
+</div>
+</body>
+</html>

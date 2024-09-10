@@ -1,0 +1,182 @@
+/* Global Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: url('/static/592.jpg') no-repeat center center fixed; /* Adjust the path as needed */
+    background-size: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar Styles */
+
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar-brand:hover {
+    color: #ffcc00;
+}
+
+/* Content Styles */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Button Styles */
+
+.btn {
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    color:green;
+
+
+}
+
+.btn-primary {
+    background-color: #860A35;
+    color: #fff;
+    border: none;
+
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #860A35;
+    color: #fff;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+input[type="file"] {
+    display: inline-block; /* Display the file input on a separate line */
+  margin-left:10px /* Add margin to the bottom for spacing */
+    width: 150px;
+    padding:20px;
+
+}
+
+label {
+    display: inline-block; /* Display the label on a separate line */
+   margin-left:10px /* Add margin to the bottom for spacing */
+    font-weight: bolder; /* Make the text bold */
+    padding:20px;
+    color:blue;
+}
+
+.display-1 {margin-top: 250px;
+font-weight: 700;
+font-size: 36px;
+}
+
+.display-2 {
+font-weight: 700;
+font-size: 32px;
+color: #860A35;
+background-color: #A3B763;
+border-radius: 10px;
+text-align: center;
+}
+.text-black{
+margin-left: 50px;
+}
+.container {
+    margin-top: 50px;
+    margin-left: 22%;
+    font-weight: 900;
+    font-size: 40px;
+    justify-content: center;
+    width:52%;
+}
+
+.image-container img {
+    max-width: 50%; /* Fixed width */
+    max-height: 350px;
+     /* Fixed height */
+    margin-left: 250px;
+}
+
+.btn.btn-warning {
+    background-color: #860A35; /* Change to the desired background color */
+    color: white; /* Change to the desired text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight:700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.btn-warning:hover {
+    background-color: #ffca28; /* Change to the desired background color on hover */
+    color: #212529; /* Change to the desired text color on hover */
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
