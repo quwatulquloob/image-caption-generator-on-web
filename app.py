@@ -73,31 +73,6 @@ def admin_panel():
     # Fetch all users' data
     users = get_all_users()  # Implement this function to fetch users' data
     return render_template('admin.html', users=users)
-#
-# # Handle login form submission
-# @app.route('/result', methods=["POST"])
-# def result():
-#     if request.method == "POST":
-#         result = request.form
-#         email = result["email"]
-#         password = result["pass"]
-#         try:
-#             user = auth.sign_in_with_email_and_password(email, password)
-#             session['uid'] = user['localId']  # Store UID in session
-#             print(session)  # Print session data for debugging
-#             global person
-#             person["is_logged_in"] = True
-#             person["email"] = user["email"]
-#             person["uid"] = user["localId"]
-#             data = db.child("users").get()
-#             person["name"] = data.val()[person["uid"]]["name"]
-#             return redirect(url_for('index'))
-#         except Exception as e:
-#             print("Login Error:", e)  # Print any login errors for debugging
-#             return redirect(url_for('login'))
-#     else:
-#         return redirect(url_for('login'))
-
 
 # Add this constant for OTP length
 OTP_LENGTH = 6
